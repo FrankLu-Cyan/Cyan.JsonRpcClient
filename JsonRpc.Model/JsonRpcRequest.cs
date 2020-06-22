@@ -4,7 +4,7 @@ using System.Text;
 
 namespace JsonRpcClient.JsonRpc.Model
 {
-    public class JsonRpcRequest<T> where T : new()
+    public class JsonRpcRequest<T>
     {
         public string jsonrpc { get; set; }
         public string method { get; set; }

@@ -1,14 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace JsonRpcClient.JsonRpc.Model
+﻿namespace JsonRpcClient.JsonRpc.Model
 {
-    public class JsonRpcResponse<T> where T : new()
+    public class JsonRpcResponse<TResult, TErrorData>
     {
         public string jsonrpc { get; set; }
 
-        public T result { get; set; }
         public string id { get; set; }
+        public TResult result { get; set; }
+        public JsonRpcResponseError<TErrorData> error { get; set; }
+    }
+
+    public class JsonRpcResponseError<T>
+    {
+        public int code { get; set; }
+        public string message { get; set; }
+        public T data { get; set; }
     }
 }
